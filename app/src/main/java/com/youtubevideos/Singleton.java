@@ -8,9 +8,6 @@ import android.util.DisplayMetrics;
 
 import java.util.Calendar;
 
-/**
- * Created by Krishna on 26/03/18.
- */
 
 public class Singleton extends Application {
     private static Singleton _instance;
@@ -50,13 +47,6 @@ public class Singleton extends Application {
         prefsEditor.apply();
     }
 
-//    public static void setDataPref(String key, List<AdvancedSearchProductData> value, Context context) {
-//        SharedPreferences myPrefs = context.getSharedPreferences(
-//                SHARED_PREFERENCES_NAME, MODE_PRIVATE);
-//        SharedPreferences.Editor prefsEditor = myPrefs.edit();
-//        prefsEditor.putData(key, value);
-//        prefsEditor.commit();
-//    }
 
     public static String getPref(String key, Context context) {
         SharedPreferences myPrefs = context.getSharedPreferences(
@@ -70,19 +60,6 @@ public class Singleton extends Application {
                 SHARED_PREFERENCES_NAME, MODE_PRIVATE);
 //        String value = myPrefs.getString(key, null);
         return myPrefs.getBoolean(key, false);
-    }
-
-    public static void clearPref(String key, Context context) {
-        SharedPreferences myPrefs = context.getSharedPreferences(
-                SHARED_PREFERENCES_NAME, MODE_PRIVATE);
-        myPrefs.edit().remove(key).apply();
-    }
-
-    public static int convertDpToPixel(float dp, Context context){
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        int px = (int) (dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT));
-        return px;
     }
 
     @Override
